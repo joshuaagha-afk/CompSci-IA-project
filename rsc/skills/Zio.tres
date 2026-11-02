@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://c15uogn5cv0pv"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_p2o4p"]
+
+[resource]
+script = ExtResource("1_p2o4p")
+SkillName = "Zio"
+SkillPower = 100.0
+SkillType = "Magic"
+Element = "Light"
+MPCost = 10
+Description = "Weak wind attack"

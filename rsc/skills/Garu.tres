@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://jphcisj45c3y"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_2yeir"]
+
+[resource]
+script = ExtResource("1_2yeir")
+SkillName = "Garu"
+SkillPower = 100.0
+SkillType = "Magic"
+Element = "Force"
+MPCost = 10
+Description = "Weak wind attack"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://clqn6k0i6x107"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_0kcot"]
+
+[resource]
+script = ExtResource("1_0kcot")
+SkillName = "Agi"
+SkillPower = 100.0
+SkillType = "Magic"
+Element = "Fire"
+MPCost = 10
+targeting = "All "
+Description = "20 Fire Damage"

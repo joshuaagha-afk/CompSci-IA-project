@@ -1,0 +1,19 @@
+[gd_resource type="Resource" format=3 uid="uid://djoph36doylfl"]
+
+[ext_resource type="Resource" uid="uid://bo72mcmnqp4fb" path="res://rsc/skills/Attack.tres" id="1_icojn"]
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="1_uuhsg"]
+[ext_resource type="Resource" uid="uid://b2es7jlp1cg8l" path="res://rsc/skills/Pierce.tres" id="2_icojn"]
+
+[resource]
+script = ExtResource("1_uuhsg")
+MobName = "Blob"
+MaxHP = 25.0
+MaxMP = 100
+Str = 10
+Magic = 5
+Dex = 5
+Endurance = 8
+Luck = 5
+FireElement = "Weak"
+IceElement = "Resist"
+Skills = Array[Resource]([ExtResource("1_icojn"), ExtResource("2_icojn")])
