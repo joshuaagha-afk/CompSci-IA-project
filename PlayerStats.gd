@@ -26,6 +26,7 @@ func _ready():
 		"res://rsc/skills/Attack.tres",
 		"res://rsc/skills/Pierce.tres",
 		"res://rsc/skills/Bufu.tres",
+		"res://rsc/skills/Garu.tres",
 		
 		"res://rsc/skills/Megidolaon.tres",
 		"res://rsc/skills/Agi.tres"

@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_uuhsg")
 MobName = "Blob"
-MaxHP = 25.0
+MaxHP = 100.0
 MaxMP = 100
 Str = 10
 Magic = 5

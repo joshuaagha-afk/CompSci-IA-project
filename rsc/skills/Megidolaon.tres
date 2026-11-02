@@ -1,11 +1,11 @@
 [gd_resource type="Resource" format=3 uid="uid://cusygmjvgphcj"]
 
-[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_y3qy5"]
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_76nem"]
 
 [resource]
-script = ExtResource("1_y3qy5")
+script = ExtResource("1_76nem")
 SkillName = "Megidolaon"
-SkillPower = 500.0
+SkillPower = 200.0
 SkillType = "Magic"
 Element = "Almighty"
 MPCost = 50

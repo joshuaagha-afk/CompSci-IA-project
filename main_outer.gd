@@ -12,6 +12,9 @@ var Teams: Array = []
 var ActiveSide: int = 0
 var ActiveIndex: int = 0
 var CurrentTurn
+var FullTurns: int = 0
+var HalfTurns: int = 0
+var TurnLabel: Label
 var BattleOver: bool = false
 
 
@@ -35,6 +38,12 @@ func _ready():
 
 	Teams = [PlayerTeam, EnemyTeam]
 
+	TurnLabel = Label.new()
+	TurnLabel.position = Vector2(400, 25)
+	TurnLabel.add_theme_font_size_override("font_size", 24)
+	add_child(TurnLabel)
+
+	FullTurns = LivingMembers(PlayerTeam).size()
 	StartTurn()
 
 
@@ -86,11 +95,16 @@ func LivingMembers(team: Array) -> Array:
 
 
 func AdvanceSlot():
-	ActiveIndex += 1
+	ActiveIndex = (ActiveIndex + 1) % Teams[ActiveSide].size()
 
 	if ActiveIndex >= 4:
 		ActiveIndex = 0
 		ActiveSide = 1 - ActiveSide
+func ConsumeIcon():
+	if HalfTurns > 0:
+		HalfTurns -= 1
+	elif FullTurns > 0:
+		FullTurns -= 1
 
 
 func StartTurn():
@@ -109,6 +123,11 @@ func StartTurn():
 		AdvanceSlot()
 
 	CurrentTurn = Teams[ActiveSide][ActiveIndex]
+	
+	TurnLabel.text = "%s | Full: %d | Half: %d" % [		"Players" if ActiveSide == 0 else "Enemies",
+	FullTurns,
+	HalfTurns
+	]
 
 	var targets = LivingMembers(Teams[1 - ActiveSide])
 
@@ -143,11 +162,35 @@ func ActionFinished(actor):
 		return
 
 	player_skill_box.DisableButtons(true)
+
+	var result: String = actor.AttackNode.LastResult
 	CurrentTurn = null
 
-	AdvanceSlot()
-	call_deferred("StartTurn")
+	match result:
+		"Bonus":
+			if FullTurns > 0:
+				FullTurns -= 1
+				HalfTurns += 1
+			else:
+				ConsumeIcon()
 
+		"Penalty":
+			ConsumeIcon()
+			ConsumeIcon()
+
+		_:
+			ConsumeIcon()
+
+	if FullTurns + HalfTurns == 0:
+		ActiveSide = 1 - ActiveSide
+		ActiveIndex = 0
+
+		FullTurns = LivingMembers(Teams[ActiveSide]).size()
+		HalfTurns = 0
+	else:
+		AdvanceSlot()
+
+	call_deferred("StartTurn")
 
 func EndBattle(message: String):
 	BattleOver = true
