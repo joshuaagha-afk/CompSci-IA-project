@@ -1,0 +1,21 @@
+[gd_resource type="Resource" format=3 uid="uid://b2hg8xowd4j2i"]
+
+[ext_resource type="Resource" uid="uid://bo72mcmnqp4fb" path="res://rsc/skills/Attack.tres" id="1_vmfrg"]
+[ext_resource type="Resource" uid="uid://oj1weolsvee2" path="res://rsc/skills/Bufula.tres" id="2_ogwl1"]
+[ext_resource type="Resource" uid="uid://cqrvqawy11jwv" path="res://rsc/skills/Media.tres" id="3_7vgtl"]
+[ext_resource type="Resource" uid="uid://c5vjqowqmbbfr" path="res://rsc/skills/Hama.tres" id="4_vi8vg"]
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="5_e4lwt"]
+
+[resource]
+script = ExtResource("5_e4lwt")
+MobName = "Jack Frost"
+MaxHP = 120.0
+MaxMP = 120
+Str = 6
+Magic = 7
+Dex = 6
+Endurance = 6
+Luck = 6
+FireElement = "Weak"
+IceElement = "Null"
+Skills = Array[Resource]([ExtResource("1_vmfrg"), ExtResource("2_ogwl1"), ExtResource("3_7vgtl"), ExtResource("4_vi8vg")])

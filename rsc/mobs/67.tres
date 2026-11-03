@@ -1,0 +1,24 @@
+[gd_resource type="Resource" format=3 uid="uid://dd0xatfuoyox"]
+
+[ext_resource type="Resource" uid="uid://bo72mcmnqp4fb" path="res://rsc/skills/Attack.tres" id="1_rxhfq"]
+[ext_resource type="Resource" uid="uid://cusygmjvgphcj" path="res://rsc/skills/Megidolaon.tres" id="2_ere8h"]
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="3_a8grt"]
+
+[resource]
+script = ExtResource("3_a8grt")
+MobName = "Pyro Jack"
+MaxHP = 67.0
+MaxMP = 67
+Str = 6
+Magic = 7
+Dex = 6
+Endurance = 7
+Luck = 6
+PhysElement = "Resist"
+FireElement = "Null"
+IceElement = "Weak"
+WindElement = "Null"
+ElecElement = "Null"
+LightElement = "Null"
+DarkElement = "Null"
+Skills = Array[Resource]([ExtResource("1_rxhfq"), ExtResource("2_ere8h")])

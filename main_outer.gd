@@ -1,7 +1,7 @@
 extends Control
 
 const ENTITY = preload("res://entity.tscn")
-const BLOB = preload("res://rsc/mobs/Blob.tres")
+
 
 @onready var player_skill_box = $PlayerSkillBox
 
@@ -21,16 +21,18 @@ var BattleOver: bool = false
 func _ready():
 	var player_data = [
 		PlayerStats,
-		PlayerStats,
-		PlayerStats,
-		PlayerStats
+		preload("res://rsc/mobs/67.tres"),
+		preload("res://rsc/mobs/Jack_Frost.tres"),
+		preload("res://rsc/mobs/Omoikane.tres")
+		
 	]
 
 	var enemy_data = [
-		BLOB,
-		BLOB,
-		BLOB,
-		BLOB
+		
+		preload("res://rsc/mobs/Angel.tres"),
+		preload("res://rsc/mobs/Blob.tres"),
+		preload("res://rsc/mobs/Pixie.tres")
+		
 	]
 
 	PlayerTeam = SpawnTeam(player_data, false)
@@ -50,12 +52,17 @@ func _ready():
 func SpawnTeam(data: Array, is_enemy: bool) -> Array:
 	var team: Array = []
 
-	for i in range(4):
+	for i in range(data.size()):
 		var character = ENTITY.instantiate()
 
-		character.name = (
-			"Enemy" if is_enemy else "Player"
-		) + str(i + 1)
+		var display_name: String
+
+		if data[i] == PlayerStats:
+			display_name = "Player"
+		else:
+			display_name = data[i].MobName
+
+		character.name = display_name
 
 		add_child(character)
 		character.LoadEntity(data[i])
@@ -67,7 +74,14 @@ func SpawnTeam(data: Array, is_enemy: bool) -> Array:
 			start_x + (i % 2) * 180,
 			160 + floori(i / 2.0) * 220
 		)
+		var name_label = Label.new()
+		name_label.text = display_name
+		name_label.position = Vector2(-90, -90)
+		name_label.size = Vector2(180, 25)
+		name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+		character.add_child(name_label)
 		character.AttackNode.AttackSig.connect(
 			ActionFinished.bind(character)
 		)
@@ -97,9 +111,7 @@ func LivingMembers(team: Array) -> Array:
 func AdvanceSlot():
 	ActiveIndex = (ActiveIndex + 1) % Teams[ActiveSide].size()
 
-	if ActiveIndex >= 4:
-		ActiveIndex = 0
-		ActiveSide = 1 - ActiveSide
+	
 func ConsumeIcon():
 	if HalfTurns > 0:
 		HalfTurns -= 1
@@ -157,6 +169,14 @@ func GetOpponents(character) -> Array:
 
 	return []
 	
+func GetAllies(character) -> Array:
+	if PlayerTeam.has(character):
+		return LivingMembers(PlayerTeam)
+
+	if EnemyTeam.has(character):
+		return LivingMembers(EnemyTeam)
+
+	return []
 func ActionFinished(actor):
 	if BattleOver or actor != CurrentTurn:
 		return

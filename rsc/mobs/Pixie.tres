@@ -1,0 +1,20 @@
+[gd_resource type="Resource" format=3 uid="uid://7ovdymwwd1ff"]
+
+[ext_resource type="Resource" uid="uid://bo72mcmnqp4fb" path="res://rsc/skills/Attack.tres" id="1_n5i6n"]
+[ext_resource type="Resource" uid="uid://cxhtq4x82oh2v" path="res://rsc/skills/Dia.tres" id="2_m7b5l"]
+[ext_resource type="Resource" uid="uid://bqvvef7pfvlug" path="res://rsc/skills/Garula.tres" id="3_xufsv"]
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="4_gakrb"]
+
+[resource]
+script = ExtResource("4_gakrb")
+MobName = "Pixie"
+MaxHP = 70.0
+MaxMP = 130
+Str = 3
+Magic = 12
+Dex = 8
+Endurance = 6
+Luck = 8
+WindElement = "Null"
+ElecElement = "Weak"
+Skills = Array[Resource]([ExtResource("1_n5i6n"), ExtResource("2_m7b5l"), ExtResource("3_xufsv")])

@@ -12,7 +12,7 @@ var Skills:Array[Resource]
 
 var PhysElement: String = "Normal"
 var FireElement: String = "Normal"
-var IceElement: String = "Normal"
+var IceElement: String = "Weak"
 var WindElement: String = "Normal"
 var ElecElement: String = "Normal"
 var LightElement: String = "Normal"
@@ -27,6 +27,7 @@ func _ready():
 		"res://rsc/skills/Pierce.tres",
 		"res://rsc/skills/Bufu.tres",
 		"res://rsc/skills/Garu.tres",
+		"res://rsc/skills/Dia.tres",
 		
 		"res://rsc/skills/Megidolaon.tres",
 		"res://rsc/skills/Agi.tres"

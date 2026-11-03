@@ -1,0 +1,22 @@
+[gd_resource type="Resource" format=3 uid="uid://4wgh7h70mreb"]
+
+[ext_resource type="Resource" uid="uid://bo72mcmnqp4fb" path="res://rsc/skills/Attack.tres" id="1_onqw0"]
+[ext_resource type="Resource" uid="uid://bj3nx153y1omh" path="res://rsc/skills/Its_lit.tres" id="2_d2c5m"]
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="3_h8p5p"]
+
+[resource]
+script = ExtResource("3_h8p5p")
+MobName = "Travi"
+MaxHP = 134.0
+MaxMP = 178
+Str = 9
+Dex = 2
+Endurance = 1
+PhysElement = "Weak"
+FireElement = "Weak"
+IceElement = "Weak"
+WindElement = "Weak"
+ElecElement = "Weak"
+LightElement = "Weak"
+DarkElement = "Weak"
+Skills = Array[Resource]([ExtResource("1_onqw0"), ExtResource("2_d2c5m")])

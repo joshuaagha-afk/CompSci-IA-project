@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://b07magpwls817"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_7ao0k"]
+
+[resource]
+script = ExtResource("1_7ao0k")
+SkillName = "Mazio"
+SkillPower = 100.0
+SkillType = "Magic"
+Element = "Electric"
+MPCost = 20
+targeting = "All"
+Description = "Weak elec damage to all enemies"

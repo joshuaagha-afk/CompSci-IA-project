@@ -12,60 +12,79 @@ func ClearMenu():
 	Buttons.clear()
 
 
-func ShowCharacter(player, targets: Array):
-	ClearMenu()
+func AddButton(
+	text: String,
+	action: Callable,
+	disabled: bool = false
+):
+	var button = Button.new()
+	button.text = text
+	button.disabled = disabled
+	button.pressed.connect(action)
+
+	add_child(button)
+	Buttons.append(button)
+
+
+func ShowCharacter(player, _targets: Array):
 	PlayerEntity = player
 
-	var heading = Label.new()
-	heading.text = "%s | MP: %d\nTarget:" % [
-		player.name,
-		player.CurrentMP
-	]
-	add_child(heading)
-
-	var target_menu = OptionButton.new()
-
-	for target in targets:
-		target_menu.add_item(str(target.name))
-
-	target_menu.item_selected.connect(
-		SelectTarget.bind(targets)
+	ShowMessage(
+		"%s | MP: %d\nChoose a skill:" % [
+			player.name,
+			player.CurrentMP
+		]
 	)
-
-	add_child(target_menu)
 
 	for i in range(player.AttackNode.Skills.size()):
 		var skill = player.AttackNode.Skills[i]
-		var button = Button.new()
 
-		button.text = "%s (%d MP)" % [
-			skill.SkillName,
-			skill.MPCost
-		]
-
-		button.disabled = (
+		var unavailable: bool = (
 			player.AttackNode.Cooldowns[i] > 0
 			or player.CurrentMP < skill.MPCost
 		)
 
-		button.pressed.connect(
-			player.AttackNode.Attack.bind(skill)
+		AddButton(
+			"%s (%d MP)" % [skill.SkillName, skill.MPCost],
+			ChooseSkill.bind(skill),
+			unavailable
 		)
 
-		add_child(button)
-		Buttons.append(button)
-
-	var pass_button = Button.new()
-	pass_button.text = "Pass"
-
-	pass_button.pressed.connect(player.AttackNode.PassTurn)
-
-	add_child(pass_button)
-	Buttons.append(pass_button)
+	AddButton("Pass", player.AttackNode.PassTurn)
 
 
-func SelectTarget(index: int, targets: Array):
-	PlayerEntity.CurrentTargets = [targets[index]]
+func ChooseSkill(skill):
+	# All-target skills don't need an individual target.
+	if skill.targeting == "All":
+		PlayerEntity.AttackNode.Attack(skill)
+		return
+
+	var battle = get_parent()
+	var targets: Array
+
+	if skill.Effect == "Heal":
+		targets = battle.GetAllies(PlayerEntity)
+		ShowMessage(skill.SkillName + ": choose an ally")
+	else:
+		targets = battle.GetOpponents(PlayerEntity)
+		ShowMessage(skill.SkillName + ": choose an enemy")
+
+	for target in targets:
+		AddButton(
+			str(target.name),
+			UseSkill.bind(skill, target)
+		)
+
+	AddButton("Back", BackToSkills)
+
+
+func UseSkill(skill, target):
+	PlayerEntity.CurrentTargets = [target]
+	PlayerEntity.AttackNode.Attack(skill)
+
+
+func BackToSkills():
+	ShowCharacter(PlayerEntity, [])
 
 
 func DisableButtons(disabled: bool):

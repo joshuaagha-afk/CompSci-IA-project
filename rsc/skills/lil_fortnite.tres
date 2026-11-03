@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://ljewh7jsmeaj"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_v8gj7"]
+
+[resource]
+script = ExtResource("1_v8gj7")
+SkillName = "The bell"
+SkillPower = 800.0
+Element = "Almighty"
+MPCost = 2
+Description = "Yes lil twiny he was on the moon"

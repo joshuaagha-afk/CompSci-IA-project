@@ -1,0 +1,19 @@
+[gd_resource type="Resource" format=3 uid="uid://dm8kyx6raypco"]
+
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="1_32b0a"]
+[ext_resource type="Resource" uid="uid://c5vjqowqmbbfr" path="res://rsc/skills/Hama.tres" id="1_xkkr0"]
+[ext_resource type="Resource" uid="uid://5gs5yxqaltjd" path="res://rsc/skills/Bufu.tres" id="2_atcea"]
+
+[resource]
+script = ExtResource("1_32b0a")
+MobName = "angel"
+MaxHP = 90.0
+MaxMP = 505
+Str = 3
+Magic = 3
+Dex = 4
+Endurance = 12
+Luck = 19
+LightElement = "Null"
+DarkElement = "Weak"
+Skills = Array[Resource]([ExtResource("1_xkkr0"), ExtResource("2_atcea")])

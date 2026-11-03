@@ -1,0 +1,23 @@
+[gd_resource type="Resource" format=3 uid="uid://c8785vae840fb"]
+
+[ext_resource type="Resource" uid="uid://ljewh7jsmeaj" path="res://rsc/skills/lil_fortnite.tres" id="1_gwxsn"]
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="1_rphjm"]
+
+[resource]
+script = ExtResource("1_rphjm")
+MobName = "Le tweezy"
+MaxHP = 400.0
+MaxMP = 500
+Str = 40
+Magic = 50
+Dex = 15
+Endurance = 20
+Luck = 1000
+PhysElement = "Null"
+FireElement = "Null"
+IceElement = "Null"
+WindElement = "Null"
+ElecElement = "Null"
+LightElement = "Null"
+DarkElement = "Weak"
+Skills = Array[Resource]([ExtResource("1_gwxsn")])

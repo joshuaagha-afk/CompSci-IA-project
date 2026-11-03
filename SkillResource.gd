@@ -1,5 +1,6 @@
 extends Resource
-
+@export_enum("Damage", "Heal")
+var Effect: String = "Damage"
 @export var SkillName:String
 @export var SkillPower:float
 @export_enum("Str","Magic")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://cqrvqawy11jwv"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_eyxej"]
+
+[resource]
+script = ExtResource("1_eyxej")
+Effect = "Heal"
+SkillName = "Media"
+SkillPower = 100.0
+SkillType = "Magic"
+MPCost = 20
+targeting = "All"
+Description = "Weak elec damage to all enemies"

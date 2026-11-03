@@ -1,0 +1,20 @@
+[gd_resource type="Resource" format=3 uid="uid://bn0c7nr2nh6vc"]
+
+[ext_resource type="Resource" uid="uid://bo72mcmnqp4fb" path="res://rsc/skills/Attack.tres" id="1_ablgb"]
+[ext_resource type="Resource" uid="uid://bn4y7q1llja48" path="res://rsc/skills/Maragi.tres" id="1_bltsx"]
+[ext_resource type="Resource" uid="uid://b07magpwls817" path="res://rsc/skills/Mazio.tres" id="2_ablgb"]
+[ext_resource type="Script" uid="uid://ct656sfipryx1" path="res://EntityResource.gd" id="3_0wiu4"]
+
+[resource]
+script = ExtResource("3_0wiu4")
+MobName = "Omoikane"
+MaxHP = 60.0
+MaxMP = 160
+Str = 3
+Magic = 15
+Dex = 7
+Endurance = 5
+Luck = 6
+WindElement = "Weak"
+ElecElement = "Resist"
+Skills = Array[Resource]([ExtResource("1_ablgb"), ExtResource("1_bltsx"), ExtResource("2_ablgb")])

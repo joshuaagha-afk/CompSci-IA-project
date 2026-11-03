@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://cxhtq4x82oh2v"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_0r7e7"]
+
+[resource]
+script = ExtResource("1_0r7e7")
+Effect = "Heal"
+SkillName = "Dia"
+SkillPower = 30.0
+SkillType = "Magic"
+MPCost = 15
+Description = "Weak elec damage to all enemies"

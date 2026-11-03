@@ -8,5 +8,5 @@ SkillName = "Megidolaon"
 SkillPower = 200.0
 SkillType = "Magic"
 Element = "Almighty"
-MPCost = 50
+MPCost = 30
 targeting = "All"

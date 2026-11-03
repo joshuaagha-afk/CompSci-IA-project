@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://bn4y7q1llja48"]
+
+[ext_resource type="Script" uid="uid://b4n0xuqv15hev" path="res://SkillResource.gd" id="1_7ebsy"]
+
+[resource]
+script = ExtResource("1_7ebsy")
+SkillName = "Maragi"
+SkillPower = 100.0
+SkillType = "Magic"
+Element = "Fire"
+MPCost = 20
+targeting = "All"
+Description = "Weak fire damage to all enemies"

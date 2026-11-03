@@ -128,7 +128,9 @@ func ShowCombatText(message: String, color: Color = Color.WHITE):
 	).set_delay(0.3)
 
 	tween.chain().tween_callback(popup.queue_free)
-
+func ReceiveHeal(amount: float):
+	var restored: float = HealthNode.Heal(roundi(amount))
+	ShowCombatText("+%d" % roundi(restored), Color.GREEN)
 func _on_entity_sprite_animation_finished():
 	print_debug(HealthNode.CurrentHP)
 	if HealthNode.CurrentHP > 0:
